@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, render_to_response
 from django.views import generic
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -24,7 +24,7 @@ class OrderFormView(LoginRequiredMixin, generic.FormView):
     def get(self, request, *args, **kwargs):
         if not request.user.is_staff:
 
-            if time_checker(1, 23):
+            if time_checker(12, 15):
 
                 form = UserOrderForm()
                 return render(request, 'customer/order_create.html', {'form': form})

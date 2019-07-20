@@ -23,3 +23,5 @@ urlpatterns = [
     path('order/', include('customer.urls')),
     path('', include('authentication.urls')),
 ]
+
+handler404 = 'customer.views.handler404'
